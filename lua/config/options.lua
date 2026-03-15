@@ -26,6 +26,7 @@ vim.opt.showmode = false
 vim.opt.showcmd = false
 vim.opt.wrap = true
 vim.opt.termguicolors = true
+vim.opt.sessionoptions = { "buffers", "curdir", "folds", "help", "localoptions", "tabpages", "winsize" }
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

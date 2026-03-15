@@ -12,6 +12,40 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+local function is_placeholder_buffer(buf)
+  if not vim.api.nvim_buf_is_valid(buf) then
+    return false
+  end
+
+  if vim.bo[buf].buftype ~= "" or vim.bo[buf].modified then
+    return false
+  end
+
+  local name = vim.api.nvim_buf_get_name(buf)
+  if name ~= "" then
+    return vim.fn.isdirectory(name) == 1
+  end
+
+  local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  return #lines == 1 and lines[1] == ""
+end
+
+local function has_persistence_session()
+  local persistence = require("persistence")
+  local files = {
+    persistence.current(),
+    persistence.current({ branch = false }),
+  }
+
+  for _, file in ipairs(files) do
+    if type(file) == "string" and vim.fn.filereadable(file) == 1 then
+      return true
+    end
+  end
+
+  return false
+end
+
 local startup_group = vim.api.nvim_create_augroup("user-startup", { clear = true })
 
 vim.api.nvim_create_autocmd("StdinReadPre", {
@@ -52,15 +86,23 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
 
     vim.schedule(function()
+      if has_persistence_session() then
+        require("persistence").load()
+
+        if is_placeholder_buffer(startup_buf) and vim.api.nvim_get_current_buf() ~= startup_buf and #vim.fn.win_findbuf(startup_buf) == 0 then
+          pcall(vim.api.nvim_buf_delete, startup_buf, { force = true })
+        end
+
+        return
+      end
+
       vim.cmd("Neotree position=current dir=" .. vim.fn.fnameescape(target_dir))
 
       if not vim.api.nvim_buf_is_valid(startup_buf) or vim.api.nvim_get_current_buf() == startup_buf then
         return
       end
 
-      local startup_name = vim.api.nvim_buf_get_name(startup_buf)
-      local is_placeholder = startup_name == "" or vim.fn.isdirectory(startup_name) == 1
-      if vim.bo[startup_buf].buftype == "" and not vim.bo[startup_buf].modified and is_placeholder then
+      if is_placeholder_buffer(startup_buf) then
         pcall(vim.api.nvim_buf_delete, startup_buf, { force = true })
       end
     end)

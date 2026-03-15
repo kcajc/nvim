@@ -6,14 +6,17 @@ return {
     keys = {
       {
         "<Leader>/",
-        function()
-          local line = vim.fn.line(".")
-          require("mini.comment").toggle_lines(line, line + vim.v.count1 - 1)
-        end,
+        mode = { "n", "x" },
         desc = "Comment",
       },
     },
-    opts = {},
+    opts = {
+      mappings = {
+        comment = "",
+        comment_line = "<Leader>/",
+        comment_visual = "<Leader>/",
+      },
+    },
     config = function(_, opts)
       require("mini.comment").setup(opts)
     end,
