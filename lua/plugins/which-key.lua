@@ -41,11 +41,9 @@ return {
         },
       },
       spec = {
-        { "<leader>b", group = "Buffers" },
         { "<leader>f", group = "Find" },
         { "<leader>g", group = "Git" },
         { "<leader>l", group = "LSP" },
-        { "<leader>r", group = "Rename" },
         { "<leader>u", group = "UI" },
       },
     },
