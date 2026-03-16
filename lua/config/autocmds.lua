@@ -4,11 +4,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight yanked text",
 })
 
+vim.api.nvim_create_autocmd("User", {
+  group = vim.api.nvim_create_augroup("user-vimtex", { clear = true }),
+  pattern = "VimtexEventInitPost",
+  command = "silent! VimtexCompile!",
+  desc = "Start VimTeX compiler on open",
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("user-tex", { clear = true }),
   pattern = "tex",
   callback = function(args)
-    vim.keymap.set("n", "<Leader>v", "<cmd>VimtexView<CR>", { buffer = args.buf, desc = "PDF" })
+    vim.keymap.set("n", "<Leader>v", function() vim.cmd.VimtexView() end, {
+      buffer = args.buf,
+      desc = "PDF sync",
+    })
   end,
 })
 
