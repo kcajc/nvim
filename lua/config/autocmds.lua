@@ -96,7 +96,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
         return
       end
 
-      vim.cmd("Neotree position=current dir=" .. vim.fn.fnameescape(target_dir))
+      require("lazy").load({ plugins = { "snacks.nvim" } })
+      Snacks.explorer({ cwd = target_dir })
 
       if not vim.api.nvim_buf_is_valid(startup_buf) or vim.api.nvim_get_current_buf() == startup_buf then
         return

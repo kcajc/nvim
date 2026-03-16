@@ -9,9 +9,6 @@ return {
         ["<C-j>"] = { "select_next", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
       },
-      appearance = {
-        nerd_font_variant = "mono",
-      },
       snippets = { preset = "default" },
       completion = {
         documentation = { auto_show = false },
