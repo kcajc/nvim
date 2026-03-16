@@ -6,7 +6,7 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 map("n", "<Leader>w", "<cmd>w<CR>", { desc = "Save" })
 map("n", "<Leader>c", "<cmd>bdelete<CR>", { desc = "Close" })
-map("n", "<Leader>q", "<cmd>confirm q<CR>", { desc = "Quit" })
+map("n", "<Leader>q", "<cmd>confirm qall<CR>", { desc = "Quit" })
 map("n", "<Leader>bd", "<cmd>bdelete<CR>", { desc = "Close" })
 map("n", "<Leader>ud", lsp.toggle_diagnostics, { desc = "Diagnostics" })
 map("n", "<Leader>uH", function()

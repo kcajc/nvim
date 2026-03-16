@@ -33,20 +33,19 @@ return {
       lazygit = {},
       picker = {
         enabled = true,
-        -- icons = {
-        --   files = { enabled = false },
-        --   git = { enabled = false },
-        -- },
         layout = {
           preset = "default",
         },
-        -- sources = {
-        --   explorer = {
-        --     formatters = {
-        --       severity = { pos = false, icons = false, level = false },
-        --     },
-        --   },
-        -- },
+        sources = {
+          explorer = {
+            layout = {
+              hidden = { "input" },
+            },
+            formmatters = {
+              severity = { icons = false },
+            },
+          },
+        },
         win = {
           input = {
             keys = {
