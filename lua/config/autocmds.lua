@@ -121,10 +121,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     map("n", "gl", vim.diagnostic.open_float, "Line")
-    map("n", "gd", vim.lsp.buf.definition, "Goto definition")
-    map("n", "gD", vim.lsp.buf.declaration, "Goto declaration")
-    map("n", "gr", vim.lsp.buf.references, "Goto references")
-    map("n", "gI", vim.lsp.buf.implementation, "Goto implementation")
+    map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+    map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+    map("n", "gr", vim.lsp.buf.references, "Go to references")
+    map("n", "gI", vim.lsp.buf.implementation, "Go to implementation")
     map("n", "K", vim.lsp.buf.hover, "Hover")
     map("n", "<Leader>li", "<cmd>LspInfo<CR>", "Info")
     map("n", "<Leader>ld", vim.diagnostic.open_float, "Line")
