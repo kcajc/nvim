@@ -132,7 +132,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<Leader>la", vim.lsp.buf.code_action, "Action")
     map("n", "<Leader>lr", vim.lsp.buf.rename, "Rename")
     map("n", "<Leader>lR", vim.lsp.buf.references, "Refs")
-    map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename")
     map("n", "<Leader>lf", function() vim.lsp.buf.format { async = true } end, "Format")
 
     if client and client:supports_method("textDocument/codeAction") then
