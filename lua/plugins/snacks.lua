@@ -78,7 +78,7 @@ return {
             layout = {
               hidden = { "input" },
             },
-            formmatters = {
+            formatters = {
               severity = { icons = false },
             },
           },

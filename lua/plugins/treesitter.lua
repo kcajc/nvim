@@ -43,7 +43,7 @@ return {
           "vimdoc",
           "yaml",
         },
-        auto_install = true,
+        auto_install = false,
         highlight = { enable = true },
         indent = { enable = true, disable = { "latex", "spthy" } },
         disable = function(_, buf)
