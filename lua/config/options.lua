@@ -24,7 +24,7 @@ vim.opt.showtabline = 2
 vim.opt.confirm = true
 vim.opt.showmode = false
 vim.opt.showcmd = false
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.sessionoptions = { "buffers", "curdir", "folds", "help", "localoptions", "tabpages", "winsize" }
 
