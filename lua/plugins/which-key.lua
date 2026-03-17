@@ -44,6 +44,7 @@ return {
         { "<leader>f", group = "Find" },
         { "<leader>g", group = "Git" },
         { "<leader>l", group = "LSP" },
+        { "<leader>s", group = "Session" },
         { "<leader>u", group = "UI" },
       },
     },
