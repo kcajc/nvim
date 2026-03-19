@@ -1,8 +1,18 @@
+local function has_words_before()
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  if col == 0 then
+    return false
+  end
+
+  local line = vim.api.nvim_get_current_line()
+  return line:sub(col, col):match("%s") == nil
+end
+
 return {
   {
     "saghen/blink.cmp",
     version = "1.*",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = { "L3MON4D3/LuaSnip" },
     opts = {
       keymap = {
         preset = "enter",
@@ -19,7 +29,9 @@ return {
               return cmp.accept()
             end
 
-            return cmp.select_and_accept()
+            if has_words_before() then
+              return cmp.select_and_accept()
+            end
           end,
           "snippet_forward",
           "fallback",
@@ -28,7 +40,7 @@ return {
         ["<C-j>"] = { "select_next", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
       },
-      snippets = { preset = "default" },
+      snippets = { preset = "luasnip" },
       completion = {
         documentation = { auto_show = true },
         ghost_text = { enabled = false },
