@@ -31,4 +31,3 @@ map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus right" })
 
 map("n", "H", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })
-

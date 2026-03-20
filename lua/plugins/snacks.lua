@@ -54,6 +54,11 @@ return {
         desc = "File",
       },
       {
+        "<Leader>j",
+        function() Snacks.picker.buffers() end,
+        desc = "Buffers",
+      },
+      {
         "<Leader>fw",
         function() Snacks.picker.grep() end,
         desc = "Word",
@@ -74,12 +79,18 @@ return {
           preset = "default",
         },
         sources = {
+          buffers = {
+            win = {
+              list = {
+                keys = {
+                  c = "bufdelete",
+                },
+              },
+            },
+          },
           explorer = {
             layout = {
               hidden = { "input" },
-            },
-            formatters = {
-              severity = { icons = false },
             },
           },
         },
