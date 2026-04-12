@@ -12,6 +12,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("user-spthy", { clear = true }),
+  pattern = "spthy",
+  callback = function()
+    vim.bo.commentstring = "// %s"
+  end,
+  desc = "Set commentstring for Tamarin prover files",
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("user-lsp-attach", { clear = true }),
   callback = function(args)
