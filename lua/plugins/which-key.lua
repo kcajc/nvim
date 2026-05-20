@@ -9,6 +9,7 @@ return {
         separator = "->",
         group = "+",
         mappings = false,
+        rules = false,
         keys = {
           Up = "Up",
           Down = "Down",

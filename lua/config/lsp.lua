@@ -16,6 +16,14 @@ M.diagnostics = {
   severity_sort = true,
   underline = true,
   virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "E",
+      [vim.diagnostic.severity.WARN] = "W",
+      [vim.diagnostic.severity.INFO] = "I",
+      [vim.diagnostic.severity.HINT] = "H",
+    },
+  },
   float = { border = "rounded", source = "if_many" },
 }
 

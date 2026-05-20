@@ -1,3 +1,47 @@
+local kind_icons = {}
+for _, kind in ipairs({
+  "Array",
+  "Boolean",
+  "Class",
+  "Color",
+  "Control",
+  "Collapsed",
+  "Constant",
+  "Constructor",
+  "Copilot",
+  "Enum",
+  "EnumMember",
+  "Event",
+  "Field",
+  "File",
+  "Folder",
+  "Function",
+  "Interface",
+  "Key",
+  "Keyword",
+  "Method",
+  "Module",
+  "Namespace",
+  "Null",
+  "Number",
+  "Object",
+  "Operator",
+  "Package",
+  "Property",
+  "Reference",
+  "Snippet",
+  "String",
+  "Struct",
+  "Text",
+  "TypeParameter",
+  "Unit",
+  "Unknown",
+  "Value",
+  "Variable",
+}) do
+  kind_icons[kind] = ""
+end
+
 return {
   {
     "folke/snacks.nvim",
@@ -72,9 +116,73 @@ return {
     opts = {
       explorer = { enabled = true },
       gitbrowse = {},
-      lazygit = {},
+      lazygit = {
+        config = {
+          gui = {
+            nerdFontsVersion = "",
+          },
+        },
+      },
+      toggle = {
+        icon = {
+          enabled = "on ",
+          disabled = "off ",
+        },
+      },
       picker = {
         enabled = true,
+        icons = {
+          files = {
+            enabled = false,
+            dir = "",
+            dir_open = "",
+            file = "",
+          },
+          keymaps = {
+            nowait = "",
+          },
+          tree = {
+            vertical = "| ",
+            middle = "+-",
+            last = "`-",
+          },
+          undo = {
+            saved = "",
+          },
+          ui = {
+            live = "",
+            hidden = "h",
+            ignored = "i",
+            follow = "f",
+            selected = "> ",
+            unselected = "  ",
+          },
+          git = {
+            enabled = false,
+            commit = "",
+            staged = "",
+            added = "",
+            deleted = "",
+            ignored = "",
+            modified = "",
+            renamed = "",
+            unmerged = "",
+            untracked = "",
+          },
+          diagnostics = {
+            Error = "E ",
+            Warn = "W ",
+            Hint = "H ",
+            Info = "I ",
+          },
+          lsp = {
+            unavailable = "",
+            enabled = "on ",
+            disabled = "off ",
+            attached = "",
+          },
+          kinds = kind_icons,
+        },
         layout = {
           preset = "default",
         },

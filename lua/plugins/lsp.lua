@@ -13,7 +13,15 @@ return {
   {
     "mason-org/mason.nvim",
     cmd = "Mason",
-    opts = {},
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "",
+          package_pending = "",
+          package_uninstalled = "",
+        },
+      },
+    },
   },
   {
     "mason-org/mason-lspconfig.nvim",
