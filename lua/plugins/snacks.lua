@@ -115,6 +115,9 @@ return {
     },
     opts = {
       explorer = { enabled = true },
+      input = {
+        icon = "",
+      },
       gitbrowse = {},
       lazygit = {
         config = {
@@ -131,6 +134,12 @@ return {
       },
       picker = {
         enabled = true,
+        prompt = "> ",
+        formatters = {
+          severity = {
+            icons = false,
+          },
+        },
         icons = {
           files = {
             enabled = false,
